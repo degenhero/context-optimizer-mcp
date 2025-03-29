@@ -30,11 +30,27 @@ This MCP server acts as a middleware between your application and LLM providers 
 - Redis server (local or remote)
 - Anthropic API key
 
-### Installation
+### Installation Options
+
+#### 1. Using MCP client
+
+The easiest way to install and run this server is using the MCP client:
+
+```bash
+# Install via npx
+npx mcp install degenhero/context-optimizer-mcp
+
+# Or using uvx
+uvx mcp install degenhero/context-optimizer-mcp
+```
+
+Make sure to set your Anthropic API key when prompted during installation.
+
+#### 2. Manual Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/context-optimizer-mcp.git
+git clone https://github.com/degenhero/context-optimizer-mcp.git
 cd context-optimizer-mcp
 
 # Install dependencies
@@ -47,6 +63,19 @@ cp .env.example .env
 # Start the server
 npm start
 ```
+
+#### 3. Using Docker
+
+```bash
+# Clone the repository
+git clone https://github.com/degenhero/context-optimizer-mcp.git
+cd context-optimizer-mcp
+
+# Build and start with Docker Compose
+docker-compose up -d
+```
+
+This will start both the MCP server and a Redis instance.
 
 ### Configuration
 
@@ -105,6 +134,18 @@ const result = await response.json();
 
 - `GET /v1/token-count?text=your_text&model=model_name`: Count tokens in a text string
 - `GET /health`: Server health check
+- `GET /metrics`: View server performance metrics
+
+## Testing
+
+A test script is included to demonstrate how context optimization works:
+
+```bash
+# Run the test script
+npm run test:context
+```
+
+This will start an interactive session where you can have a conversation and see how the context gets optimized as it grows.
 
 ## Advanced Features
 
@@ -121,6 +162,13 @@ By providing a consistent `conversation_id` in requests, the server can maintain
 - In-memory cache provides fastest access for active conversations
 - Redis enables persistence and sharing across server instances
 - Summarization operations add some latency to requests that exceed token thresholds
+
+## Documentation
+
+Additional documentation can be found in the `docs/` directory:
+
+- [Architecture Overview](docs/ARCHITECTURE.md)
+- [Contributing Guide](docs/CONTRIBUTING.md)
 
 ## License
 
