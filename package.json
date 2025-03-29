@@ -1,0 +1,34 @@
+{
+  "name": "context-optimizer-mcp",
+  "version": "1.0.0",
+  "description": "An MCP server that uses Redis and in-memory caching to optimize and extend context windows for large chat histories",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "MCP",
+    "context",
+    "LLM",
+    "Redis",
+    "caching"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.18.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.1",
+    "ioredis": "^5.3.2",
+    "lru-cache": "^10.2.0",
+    "node-cache": "^5.1.2",
+    "tiktoken": "^1.0.13"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
